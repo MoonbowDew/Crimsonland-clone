@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://bon_nuke.png" type="Texture" id=1]
+[ext_resource path="res://Nuke.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 60, 60 )
+
+[node name="Nuke" type="Sprite"]
+scale = Vector2( 0.1, 0.1 )
+z_index = 1
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Hitbox_Nuke" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox_Nuke"]
+position = Vector2( -7.15256e-06, 7.15256e-06 )
+scale = Vector2( 1, 1 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="Hitbox_Nuke" to="." method="_on_Hitbox_Nuke_area_entered"]
